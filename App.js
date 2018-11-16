@@ -14,7 +14,7 @@ export default class App extends Component {
   }
 }
 
- const defaultState = {
+const defaultState = {
   arrWords: [
     { id: 1, en: 'action', vn: 'hành động', memorized: true, isShow: false },
     { id: 2, en: 'actor', vn: 'diễn viên', memorized: false, isShow: false },
@@ -43,6 +43,8 @@ const reducer = (state = defaultState, ation) => {
       return { ...state, filterStatus: 'MEMORIZED' }
     case "FILTER_NEED_PRACTICE":
       return { ...state, filterStatus: 'NEED_PRACTICE' }
+    case "CLICK_BUTTON_ADD_IN_HEADER":
+      return { ...state, isAdding: !state.isAdding }
     default:
       break;
   }

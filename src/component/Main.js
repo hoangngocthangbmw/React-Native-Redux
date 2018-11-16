@@ -3,12 +3,16 @@ import { View, Text, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import Word from '../component/Word';
 import Filter from './Filter';
+import Header from './Header';
+import Form from './Form';
 
 class Main extends Component {
 
     render() {
         return (
             <View style={{ backgroundColor: 'white', flex: 1 }}>
+                <Header />
+                {this.props.myIsAdding ? <Form /> : null}
                 <Text>{this.props.myFilter}</Text>
                 <FlatList
                     // data={this.props.myWords}
@@ -21,7 +25,6 @@ class Main extends Component {
                     }}
                 />
                 <Filter />
-
             </View>
         );
     }
@@ -40,8 +43,9 @@ class Main extends Component {
 function mapStateToProps(state) {
     return {
         myFilter: state.filterStatus,
-        myCheck: state.isAdding,
-        myWords: state.arrWords
+        myIsAdding: state.isAdding,
+        myWords: state.arrWords,
+
     };
 }
 

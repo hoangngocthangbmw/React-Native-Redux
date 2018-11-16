@@ -7,7 +7,6 @@ class Filter extends Component {
     render() {
         return (
             <View style={{ flexDirection: 'row', justifyContent: 'space-around', height: 50, width: '100%' }}>
-
                 <TouchableOpacity>
                     <Text style={this.getTextStyle("SHOW_ALL")} onPress={() => this.setFilterStatus("FILTER_SHOW_ALL")}> show all </Text>
                 </TouchableOpacity>
