@@ -36,11 +36,9 @@ class Filter extends Component {
 }
 
 const styles = StyleSheet.create({
-
     textColorButton: {
         color: 'white'
     }
-
 })
 
 function mapStateToProps(state) {
