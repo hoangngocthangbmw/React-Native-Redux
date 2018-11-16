@@ -7,16 +7,16 @@ class Filter extends Component {
     render() {
         return (
             <View style={{ flexDirection: 'row', justifyContent: 'space-around', height: 50, width: '100%' }}>
-                <TouchableOpacity>
-                    <Text style={this.getTextStyle("SHOW_ALL")} onPress={() => this.setFilterStatus("FILTER_SHOW_ALL")}> show all </Text>
+                <TouchableOpacity style={styles.button} onPress={() => this.setFilterStatus("FILTER_SHOW_ALL")}>
+                    <Text style={this.getTextStyle("SHOW_ALL")} > show all </Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity>
-                    <Text style={this.getTextStyle("MEMORIZED")} onPress={() => this.setFilterStatus("FILTER_MEMORIZED")}> memorized </Text>
+                <TouchableOpacity style={styles.button} onPress={() => this.setFilterStatus("FILTER_MEMORIZED")}>
+                    <Text style={this.getTextStyle("MEMORIZED")}> memorized </Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity>
-                    <Text style={this.getTextStyle("NEED_PRACTICE")} onPress={() => this.setFilterStatus("FILTER_NEED_PRACTICE")}> need practice </Text>
+                <TouchableOpacity style={styles.button} onPress={() => this.setFilterStatus("FILTER_NEED_PRACTICE")}>
+                    <Text style={this.getTextStyle("NEED_PRACTICE")}> need practice </Text>
                 </TouchableOpacity>
             </View>
         );
@@ -26,7 +26,7 @@ class Filter extends Component {
         if (statusName === this.props.myFilterStatus) {
             return { color: 'yellow' }
         }
-        return styles.myFilterStatus
+        return styles.textColorButton
     }
 
     setFilterStatus(actionType) {
@@ -35,6 +35,12 @@ class Filter extends Component {
 }
 
 const styles = StyleSheet.create({
+    button: {
+        backgroundColor: 'black',
+        justifyContent: "center",
+        alignItems: 'center'
+    },
+
     textColorButton: {
         color: 'white'
     }

@@ -35,8 +35,8 @@ const defaultState = {
   isAdding: false
 };
 
-const reducer = (state = defaultState, ation) => {
-  switch (ation.type) {
+const reducer = (state = defaultState, action) => {
+  switch (action.type) {
     case "FILTER_SHOW_ALL":
       return { ...state, filterStatus: 'SHOW_ALL' }
     case "FILTER_MEMORIZED":
@@ -45,6 +45,19 @@ const reducer = (state = defaultState, ation) => {
       return { ...state, filterStatus: 'NEED_PRACTICE' }
     case "CLICK_BUTTON_ADD_IN_HEADER":
       return { ...state, isAdding: !state.isAdding }
+    case "CLICK_BUTTON_ADD_IN_FORM":
+      return {
+        ...state,
+        arrWords: state.arrWords.concat([
+          {
+            id: state.arrWords.length + 1,
+            en: action.en,
+            vn: action.vn,
+            memorized: false,
+            isShow: false
+          }
+        ])
+      }
     default:
       break;
   }
