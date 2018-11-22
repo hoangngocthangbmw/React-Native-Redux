@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
+import { clickButtonAddInHeader } from '../redux/action/actionCreator';
 
 class Header extends Component {
     constructor(props) {
@@ -10,9 +11,13 @@ class Header extends Component {
     }
 
     onClickAdd() {
-        this.props.dispatch({
-            type:"CLICK_BUTTON_ADD_IN_HEADER",
-        })
+        // this.props.dispatch({
+        //     type: "CLICK_BUTTON_ADD_IN_HEADER",
+        // })
+
+        // this.props.dispatch(clickButtonAddInHeader())
+
+        this.props.clickButtonAddInHeader()
     }
 
     render() {
@@ -20,7 +25,9 @@ class Header extends Component {
             <View style={styles.container}>
                 <View style={{ alignItems: 'center' }}>
                     <Text>MY WORDS</Text>
-                    <TouchableOpacity style={styles.buttonAdd} onPress={() => this.onClickAdd()}>
+                    <TouchableOpacity
+                        style={styles.buttonAdd} onPress={() => this.onClickAdd()}
+                    >
                         <Text>+</Text>
                     </TouchableOpacity>
                 </View>
@@ -44,4 +51,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default connect()(Header);
+export default connect(null,{clickButtonAddInHeader})(Header);

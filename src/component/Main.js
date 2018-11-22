@@ -45,7 +45,6 @@ function mapStateToProps(state) {
         myFilter: state.filterStatus,
         myIsAdding: state.isAdding,
         myWords: state.arrWords,
-
     };
 }
 
